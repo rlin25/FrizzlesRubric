@@ -1,0 +1,411 @@
+text,label
+"Build me a website",0
+"Make this feature faster",0
+"Make this window smaller",0
+"Remove this element",0
+"Create a utility for working with complex mathematical calculations",1
+"Implement a system for handling complex drag-and-drop operations",1
+"Create a function to validate phone numbers across different regions",1
+"Implement a custom multi-step form component",1
+"Fix this bug",0
+"Update the UI",0
+"Refactor this code",0
+"Add animations",0
+"Optimize performance",0
+"Debug this issue",0
+"Clean up the codebase",0
+"Add more tests",0
+"Improve error handling",0
+"Check for edge cases",0
+"Make it responsive",0
+"Create a login page",0
+"Design a database schema for a content management system with user roles and permissions",1
+"Implement a recursive function to traverse a directory and return all files matching a specific pattern",1
+"Write a middleware function to validate JWT tokens and extract user information",1
+"Create a responsive grid system that maintains aspect ratio for image elements across all device sizes",1
+"Write a utility function that converts CSV data to normalized JSON objects with proper type casting",1
+"Implement a caching mechanism for API responses with configurable expiration times",1
+"Create a custom hook for managing pagination state with dynamic page size options",1
+"Build a reusable modal component with focus trap and keyboard navigation support",1
+"Design an algorithm to efficiently merge overlapping time intervals from multiple calendars",1
+"Implement a debounce decorator for class methods with configurable delay and immediate execution options",1
+"Fix the authentication flow",0
+"Change these colors",0
+"Make it look better",0
+"Add a button here",0
+"Create a dark mode",0
+"Adjust the layout",0
+"Improve loading time",0
+"Handle errors better",0
+"Show more information",0
+"Hide sensitive data",0
+"Implement a binary search tree with insert, delete, and traversal operations",1
+"Create a custom form validator that handles nested object validation with specific error messages",1
+"Write a parser for converting markdown to HTML with support for custom extensions",1
+"Build a WebSocket service for real-time chat with reconnection and message queueing capabilities",1
+"Implement a virtual scroll component that efficiently renders large datasets with variable row heights",1
+"Create a state management solution using the Observable pattern with typed events and selectors",1
+"Design a rate limiting algorithm with token bucket implementation and configurable burst allowances",1
+"Build a custom formatter for code highlighting with theme support and line numbering options",1
+"Implement a task scheduler with priority queues and deadline-based execution ordering",1
+"Create a data visualization component for hierarchical data with collapsible tree navigation",1
+"Add a login feature",0
+"Update the dashboard",0
+"Change the font size",0
+"Modify this function",0
+"Style these components",0
+"Enhance user experience",0
+"Connect to the database",0
+"Fix styling issues",0
+"Add more features",0
+"Implement caching",0
+"Create a RESTful API for user management with role-based access control and multi-factor authentication",1
+"Implement a custom Redux middleware for handling asynchronous side effects with cancelation support",1
+"Build a type-safe GraphQL client with automatic query generation from interface definitions",1
+"Design a file upload component with chunk-based uploading and progress tracking for large files",1
+"Create a utility for deep object comparison that ignores specified properties and handles circular references",1
+"Implement a lazy loading image component with blur-up placeholder and IntersectionObserver integration",1
+"Build a finite state machine for managing complex form wizards with conditional paths and validation rules",1
+"Create a custom ESLint rule to enforce specific import ordering and module boundary restrictions",1
+"Implement a proxy-based reactive state management system with automatic dependency tracking",1
+"Build a data grid component with virtual scrolling, column resizing, and custom cell renderers",1
+"Make it work on mobile",0
+"Fix the broken links",0
+"Update the dependencies",0
+"Add more documentation",0
+"Refactor this component",0
+"Add validation",0
+"Create a sidebar",0
+"Fix accessibility issues",0
+"Improve SEO",0
+"Add search functionality",0
+"Implement a custom error boundary component that captures and logs errors with stack traces to a monitoring service",1
+"Create a utility for generating TypeScript interfaces from JSON Schema definitions with proper recursive type handling",1
+"Build a themeable component library with CSS-in-JS implementation and design token system",1
+"Implement a data fetching hook with normalized cache and optimistic updates for mutations",1
+"Create a service worker for offline caching of assets with versioning and background synchronization",1
+"Build a cross-platform notification system that handles web push, in-app, and email delivery channels",1
+"Implement a custom drag-and-drop sortable list with keyboard accessibility and animation support",1
+"Create a utility for converting between different color spaces with gamma correction and alpha blending",1
+"Design a plugin architecture for extending application functionality with dynamic loading capabilities",1
+"Create a custom webpack configuration for optimized code splitting and tree shaking with dynamic imports",1
+"Speed up this process",0
+"Enhance this function",0
+"Simplify the code",0
+"Add more icons",0
+"Change the layout",0
+"Implement pagination",0
+"Add a footer",0
+"Update the header",0
+"Fix performance issues",0
+"Rebuild this section",0
+"Create a distributed lock mechanism for coordinating concurrent processes with deadlock detection",1
+"Implement a custom text editor with syntax highlighting and auto-completion for multiple languages",1
+"Build a dependency injection container with circular dependency resolution and lazy instantiation",1
+"Create a utility for parsing and manipulating complex date ranges with timezone support",1
+"Implement a custom router with nested routes, guards, and code-splitting support",1
+"Design a custom WebGL shader for applying image filters with configurable parameters",1
+"Create a pub/sub event bus with typed channels and message filtering capabilities",1
+"Implement a retry mechanism for failed API requests with exponential backoff and jitter",1
+"Build a form generator that creates dynamic forms from JSON schema definitions with conditional fields",1
+"Create a custom testing framework for asynchronous code with timeout control and parallel execution",1
+"Make the text bigger",0
+"Add hover effects",0
+"Update the API endpoints",0
+"Fix this component",0
+"Improve the design",0
+"Add error messages",0
+"Create a dropdown menu",0
+"Add more options",0
+"Change the animation",0
+"Update the content",0
+"Implement a compile-time GraphQL schema validation tool that detects breaking changes between versions",1
+"Create a custom hook for handling complex form state with field-level validation and dirty checking",1
+"Build a virtual DOM diffing algorithm optimized for list updates with key-based reconciliation",1
+"Implement a system for handling internationalization with pluralization rules and right-to-left text support",1
+"Create a utility for generating PDF documents from HTML templates with custom fonts and page breaks",1
+"Design a database migration system with rollback capabilities and data integrity checks",1
+"Build a custom state machine for managing complex UI flows with history and time-travel debugging",1
+"Implement a custom logging system with structured data format and configurable transport options",1
+"Create a utility for deep merging nested configuration objects with override and extension options",1
+"Build a custom table component with fixed headers, virtualized rows, and column filtering capabilities",1
+"Center this div",0
+"Optimize the images",0
+"Add more whitespace",0
+"Create a hamburger menu",0
+"Make the buttons bigger",0
+"Update the placeholders",0
+"Fix alignment issues",0
+"Add loading indicators",0
+"Update the color scheme",0
+"Implement drag and drop",0
+"Create a custom compiler for transforming domain-specific language to optimized JavaScript with source maps",1
+"Implement a distributed tracing system for microservices with context propagation and sampling control",1
+"Build a system for managing and resolving feature flags with user targeting and A/B testing capabilities",1
+"Create a utility for validating and normalizing complex data structures with custom transformation rules",1
+"Implement a custom WebRTC signaling protocol with ICE candidate negotiation and connection recovery",1
+"Design a type-safe event emitter with strongly typed listeners and wildcard subscription patterns",1
+"Build a custom ORM with lazy loading relations and automatic query optimization strategies",1
+"Create a utility for differential synchronization of document changes between clients and server",1
+"Implement a custom scheduler for background tasks with priority levels and resource usage constraints",1
+"Build a system for automatic API documentation generation with request validation and example response generation",1
+"Make it look clean",0
+"Add smooth transitions",0
+"Fix the navigation",0
+"Update the images",0
+"Make it faster",0
+"Add filtering options",0
+"Fix mobile display",0
+"Improve contrast",0
+"Add version control",0
+"Optimize database queries",0
+"Implement a custom garbage collection algorithm for managing large object graphs with reference cycles",1
+"Create a utility for compressing and optimizing SVG assets with path merging and attribute normalization",1
+"Build a secure credential storage system with encryption and automatic key rotation policies",1
+"Implement a custom image processing pipeline with multi-stage filters and format conversion options",1
+"Create a distributed messaging system with guaranteed delivery and idempotent message handling",1
+"Design a multi-tenant architecture with data isolation and resource quota enforcement mechanisms",1
+"Build a custom template engine with expression evaluation and conditional rendering support",1
+"Implement a system for tracking and analyzing user behavior with privacy-preserving anonymization techniques",1
+"Create a utility for generating OpenAPI specifications from annotated source code with validation rules",1
+"Build a custom WebAssembly module loader with dynamic memory management and host function binding",1
+"Add some color",0
+"Make it intuitive",0
+"Fix the padding",0
+"Update the form fields",0
+"Improve readability",0
+"Add sorting functionality",0
+"Create a modal",0
+"Fix overflow issues",0
+"Add export features",0
+"Make it scalable",0
+"Implement a custom build system with parallel task execution and incremental compilation support",1
+"Create a utility for analyzing and visualizing component dependency graphs with circular reference detection",1
+"Build a system for dynamic code generation with runtime evaluation and sandboxed execution environment",1
+"Implement a custom virtual file system with hierarchical structure and transaction support",1
+"Create a utility for automatically generating test cases based on function signatures and type constraints",1
+"Design a real-time collaboration system with operational transforms and conflict resolution strategies",1
+"Build a custom animation framework with physics-based effects and keyframe interpolation",1
+"Implement a system for secure cross-origin communication with request validation and rate limiting",1
+"Create a utility for generating type-safe API clients from OpenAPI specifications with request/response validation",1
+"Build a custom accessibility testing framework that validates WCAG compliance with automated remediation suggestions",1
+"Fix this issue",0
+"Add more controls",0
+"Update the styles",0
+"Make it editable",0
+"Add keyboard shortcuts",0
+"Improve the interface",0
+"Create a loading screen",0
+"Fix edge cases",0
+"Add data visualization",0
+"Optimize memory usage",0
+"Implement a custom dependency resolver with topological sorting and version constraint satisfaction",1
+"Create a utility for analyzing and optimizing runtime performance with flame graph generation and bottleneck detection",1
+"Build a system for managing distributed transactions with two-phase commit protocol and recovery mechanisms",1
+"Implement a custom parser generator for domain-specific languages with abstract syntax tree transformation",1
+"Create a utility for automating visual regression testing with screenshot comparison and difference highlighting",1
+"Design a permission system with hierarchical role inheritance and fine-grained access control policies",1
+"Build a custom indexing engine for full-text search with relevance scoring and faceted filtering options",1
+"Implement a system for secure credential storage with hardware security module integration and audit logging",1
+"Create a utility for generating static type definitions from runtime schema validation rules",1
+"Build a custom web scraping framework with DOM traversal and content extraction rules",1
+"Add more contrast",0
+"Fix the scrolling",0
+"Update the icons",0
+"Add tooltips",0
+"Make it secure",0
+"Add analytics tracking",0
+"Fix cross-browser issues",0
+"Add social sharing",0
+"Improve the algorithm",0
+"Update the framework",0
+"Implement a custom WebSocket protocol for real-time data synchronization with conflict resolution strategies",1
+"Create a utility for generating comprehensive code coverage reports with uncovered path analysis",1
+"Build a system for automated deployment with canary releasing and traffic shifting capabilities",1
+"Implement a custom shader pipeline for real-time graphics with material system and lighting models",1
+"Create a utility for automated accessibility remediation with DOM manipulation and ARIA attribute injection",1
+"Design a code transformation system with abstract syntax tree manipulation and code generation",1
+"Build a custom state persistence mechanism with encryption and version migration support",1
+"Implement a system for dynamic configuration management with environment overrides and schema validation",1
+"Create a utility for generating mock data based on type definitions with realistic value constraints",1
+"Build a custom workflow engine with state machine definition and parallel execution paths",1
+"Change the background",0
+"Add inline editing",0
+"Fix the authentication",0
+"Update user profiles",0
+"Add file uploading",0
+"Improve performance",0
+"Create a landing page",0
+"Fix form validation",0
+"Add progress indicators",0
+"Update the checkout flow",0
+"Implement a custom static site generator with incremental builds and asset optimization pipeline",1
+"Create a utility for analyzing and visualizing application bundle size with treemap representation and duplicate detection",1
+"Build a system for defining and executing complex business rules with decision tree modeling",1
+"Implement a custom database migration tool with data transformation and integrity validation capabilities",1
+"Create a utility for automating end-to-end testing with screen recording and failure analysis",1
+"Design a distributed caching system with invalidation propagation and consistency protocols",1
+"Build a custom reactive programming framework with operator composition and backpressure handling",1
+"Implement a system for automated code quality analysis with rule customization and baseline comparison",1
+"Create a utility for optimizing database query performance with execution plan analysis and index recommendations",1
+"Build a custom error monitoring service with stack trace normalization and error grouping algorithms",1
+"Add a contact form",0
+"Update the navigation menu",0
+"Fix responsive layout",0
+"Add dark mode toggle",0
+"Improve load times",0
+"Add input validation",0
+"Create user settings",0
+"Fix image rendering",0
+"Add notification system",0
+"Update pricing tables",0
+"Implement a custom JSON serialization library with cyclic object detection and custom type handling",1
+"Create a utility for generating API documentation from TypeScript interfaces with example value generation",1
+"Build a system for tracking and visualizing state changes with time-travel debugging capabilities",1
+"Implement a custom data synchronization protocol with conflict detection and resolution strategies",1
+"Create a utility for automated performance profiling with critical path analysis and optimization suggestions",1
+"Design a custom component styling system with theme inheritance and responsive breakpoint handling",1
+"Build a custom transpiler for converting modern JavaScript features to legacy-compatible code",1
+"Implement a system for automated accessibility testing with violation reporting and remediation guidance",1
+"Create a utility for managing complex application state with undo/redo capabilities and persistence",1
+"Build a custom templating engine with expression evaluation and partial rendering support",1
+"Add infinite scrolling",0
+"Fix the search function",0
+"Update product listings",0
+"Add image carousel",0
+"Improve the checkout",0
+"Add password reset",0
+"Create account settings",0
+"Fix payment processing",0
+"Add multi-language support",0
+"Update the admin panel",0
+"Implement a custom build pipeline for optimizing and bundling assets with dependency analysis",1
+"Create a utility for analyzing code complexity metrics with visualization and refactoring suggestions",1
+"Build a system for automated database schema evolution with backward compatibility verification",1
+"Implement a custom state synchronization protocol for real-time collaborative applications",1
+"Create a utility for generating comprehensive API client libraries with type safety and error handling",1
+"Design a custom event sourcing architecture with event store and projection management",1
+"Build a custom form validation library with rule composition and conditional validation logic",1
+"Implement a system for securely managing and rotating encryption keys with access control policies",1
+"Create a utility for automated UI component documentation with interactive examples and prop tables",1
+"Build a custom data grid component with frozen columns, row grouping, and aggregation capabilities",1
+"Add social login",0
+"Fix memory leaks",0
+"Update the testimonials",0
+"Add email templates",0
+"Improve security",0
+"Add print styling",0
+"Create a help center",0
+"Fix date formatting",0
+"Add image optimization",0
+"Update the onboarding flow",0
+"Implement a custom data transformation pipeline with validation and enrichment stages",1
+"Create a utility for automating visual regression testing with perceptual difference algorithms",1
+"Build a system for dynamic feature flagging with user targeting and A/B testing capabilities",1
+"Implement a custom CI/CD pipeline with dependency-aware build ordering and caching strategies",1
+"Create a utility for generating database migration scripts with schema diff detection",1
+"Design a custom authorization system with attribute-based access control and policy enforcement",1
+"Build a custom WebAssembly runtime with memory management and host function integration",1
+"Implement a system for distributed tracing across microservices with context propagation",1
+"Create a utility for optimizing images with format selection and quality adjustment based on content",1
+"Build a custom state management library with selectors, memoization, and middleware support",1
+"Add password strength meter",0
+"Fix browser compatibility",0
+"Update user interface",0
+"Add CSV export",0
+"Improve form handling",0
+"Add cookie consent",0
+"Create an admin dashboard",0
+"Fix the checkout process",0
+"Add data filtering",0
+"Update the product page",0
+"Implement a custom GraphQL schema stitching solution for combining multiple remote schemas",1
+"Create a utility for analyzing and optimizing database query performance with execution plan visualization",1
+"Build a system for managing distributed cron jobs with failure recovery and execution guarantees",1
+"Implement a custom code generator for creating type-safe database access layers from schema definitions",1
+"Create a utility for validating and sanitizing user input with customizable rule sets and error messaging",1
+"Design a custom service mesh implementation with circuit breaking and request routing capabilities",1
+"Build a custom testing framework for asynchronous workflows with timeout handling and parallel execution",1
+"Implement a system for automated dependency updates with compatibility testing and changelog generation",1
+"Create a utility for generating static type definitions from runtime schema validation rules with mapped types",1
+"Build a custom observability system with metrics aggregation and anomaly detection algorithms",1
+"Add tag filtering",0
+"Fix broken images",0
+"Update the hero section",0
+"Add related products",0
+"Improve the search results",0
+"Add PDF generation",0
+"Create a feedback form",0
+"Fix error handling",0
+"Add email notifications",0
+"Update the blog layout",0
+"Implement a custom dependency injection container with lifecycle management and circular dependency resolution",1
+"Create a utility for automated contract testing between services with schema compatibility verification",1
+"Build a system for dynamic UI composition with server-driven rendering and client-side hydration",1
+"Implement a custom feature flag system with gradual rollout and user segment targeting",1
+"Create a utility for optimizing application startup performance with critical path analysis and lazy loading",1
+"Design a custom message bus architecture with topic-based routing and delivery guarantees",1
+"Build a custom data validation library with composable validators and conditional rules",1
+"Implement a system for secure credential storage with encryption and key rotation policies",1
+"Create a utility for generating comprehensive test coverage reports with uncovered path highlighting",1
+"Build a custom CSS-in-JS solution with theme support and dynamic style generation",1
+"Add lazy loading",0
+"Fix database connection issues",0
+"Update marketing materials",0
+"Add breadcrumb navigation",0
+"Improve accessibility",0
+"Add image cropping",0
+"Create product filters",0
+"Fix network issues",0
+"Add account deletion",0
+"Update terms of service",0
+"Implement a custom WebSocket server with room-based subscription management and message filtering",1
+"Create a utility for automated API documentation generation with example request/response pairs",1
+"Build a system for managing distributed locks with deadlock detection and prevention strategies",1
+"Implement a custom state machine for managing complex application workflows with visualization tools",1
+"Create a utility for optimizing JavaScript bundle size with tree shaking and code splitting analysis",1
+"Design a custom reactive programming library with operator composition and subscription management",1
+"Build a custom internationalization system with pluralization rules and right-to-left text support",1
+"Implement a system for secure cross-origin communication with request validation and rate limiting",1
+"Create a utility for generating type-safe database query builders from schema definitions",1
+"Build a custom component library with theming support and accessibility compliance",1
+"Add guest checkout",0
+"Fix URL routing",0
+"Update pricing plans",0
+"Add image galleries",0
+"Improve mobile navigation",0
+"Add category filtering",0
+"Create user profiles",0
+"Fix SSL configuration",0
+"Add password recovery",0
+"Update legal documents",0
+"Implement a custom build system with incremental compilation and dependency tracking",1
+"Create a utility for analyzing and visualizing component dependency trees with circular reference detection",1
+"Build a system for automated UI testing with screenshot comparison and visual regression detection",1
+"Implement a custom data synchronization protocol for offline-first applications with conflict resolution",1
+"Create a utility for generating comprehensive API client libraries with error handling and retry logic",1
+"Design a custom event sourcing system with event store and projection management",1
+"Build a custom form validation library with rule composition and asynchronous validation support",1
+"Implement a system for secure management of sensitive configuration values with encryption and access control",1
+"Create a utility for automated performance benchmarking with statistical analysis and regression detection",1
+"Build a custom state management solution using the Command Query Responsibility Segregation pattern",1
+"Add autocomplete search",0
+"Fix session handling",0
+"Update promotional banners",0
+"Add rating system",0
+"Improve checkout experience",0
+"Add multi-step forms",0
+"Create a style guide",0
+"Fix memory management",0
+"Add data import",0
+"Update user permissions",0
+"Implement a custom GraphQL resolver framework with dataloader integration for batched requests",1
+"Create a utility for analyzing runtime performance with flame charts and bottleneck identification",1
+"Build a system for managing distributed transactions with saga pattern implementation",1
+"Implement a custom code formatter with language-specific rules and configuration options",1
+"Create a utility for automated visual testing with perceptual difference algorithms and threshold controls",1
+"Design a custom authorization system with role-based access control and permission inheritance",1
+"Build a custom WebAssembly module for computationally intensive tasks with SIMD optimization",1
+"Implement a system for distributed tracing with sampling controls and latency analysis",1
+"Create a utility for optimizing images with format selection and quality adjustment based on network conditions",1
+"Build a custom state management library with devtools integration and time-travel debugging",1
