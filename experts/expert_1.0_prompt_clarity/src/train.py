@@ -62,7 +62,10 @@ def train_model(dataset, model_name="bert-base-uncased"):
     checkpoint = get_latest_checkpoint('./models/prompt_clarity_model')
 
     # Train the model (resume if a checkpoint exists)
-    trainer.train(resume_from_checkpoint=checkpoint)
+    if checkpoint:
+        trainer.train(resume_from_checkpoint=checkpoint)
+    else:
+        trainer.train()
 
     # Save the model
     model.save_pretrained('./models/prompt_clarity_model')
