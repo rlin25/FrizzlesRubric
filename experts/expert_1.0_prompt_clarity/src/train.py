@@ -1,8 +1,33 @@
-# src/train.py
-
 from transformers import Trainer, TrainingArguments
 from model import create_model
 from data_preprocessing import preprocess_data
+import pandas as pd
+import os
+
+def merge_datasets(dataset_paths):
+    """Function to merge multiple datasets into one."""
+    # Load and merge all datasets
+    datasets = [pd.read_csv(path) for path in dataset_paths]
+    merged_dataset = pd.concat(datasets, ignore_index=True)
+    
+    # Save merged dataset to CSV
+    merged_dataset.to_csv("data/clarity_merged.csv", index=False)  # Save to CSV
+    
+    return merged_dataset
+
+def get_latest_checkpoint(output_dir):
+    """Find the latest checkpoint by looking at the folder names."""
+    checkpoint_dirs = [d for d in os.listdir(output_dir) if d.startswith('checkpoint-')]
+    if not checkpoint_dirs:
+        return None  # No checkpoints found
+    
+    # Extract the numeric part of each checkpoint folder (e.g., '28' from 'checkpoint-28')
+    checkpoint_nums = [int(d.split('-')[1]) for d in checkpoint_dirs]
+    
+    # Find the latest checkpoint (the one with the highest number)
+    latest_checkpoint = max(checkpoint_nums)
+    
+    return os.path.join(output_dir, f'checkpoint-{latest_checkpoint}')
 
 def train_model(dataset, model_name="bert-base-uncased"):
     # Split the dataset into training and testing sets
@@ -33,15 +58,31 @@ def train_model(dataset, model_name="bert-base-uncased"):
         eval_dataset=eval_dataset
     )
 
-    # Train the model
-    trainer.train()
+    # Get the latest checkpoint
+    checkpoint = get_latest_checkpoint('./models/prompt_clarity_model')
+
+    # Train the model (resume if a checkpoint exists)
+    trainer.train(resume_from_checkpoint=checkpoint)
 
     # Save the model
     model.save_pretrained('./models/prompt_clarity_model')
 
 if __name__ == "__main__":
-    # Load and preprocess data
-    dataset = preprocess_data("data/prompt_clarity_dataset_clean.csv")
+    # Paths to datasets
+    dataset_paths = [
+        "data/clarity_high_long.csv",
+        "data/clarity_high_medium.csv",
+        "data/clarity_high_short.csv",
+        "data/clarity_low_long.csv",
+        "data/clarity_low_medium.csv",
+        "data/clarity_low_short.csv",
+    ]
+    
+    # Merge the datasets
+    merged_dataset = merge_datasets(dataset_paths)
+    
+    # Preprocess merged dataset
+    dataset = preprocess_data(merged_dataset)
     
     # Train the model
     train_model(dataset)
