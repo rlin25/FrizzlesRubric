@@ -45,8 +45,9 @@ if __name__ == "__main__":
     # Example text(s) to test
     example_texts = [
         "How do I improve the performance of my code?",
-        "What are the best practices for writing clean code?",
-        "Remove 2 lines from line 388."
+        "Code me a website using HTML and CSS.",
+        "Write a Python function to calculate the factorial of a number.",
+        "Move the window 2 pixels to the right. Then, move it 3 pixels down. Finally, move it 1 pixel to the left."
     ]
 
     # Run the model on each example text
