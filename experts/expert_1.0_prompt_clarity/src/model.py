@@ -1,5 +1,3 @@
-# src/model.py
-
 from transformers import AutoModelForSequenceClassification
 
 def create_model(model_name="bert-base-uncased"):
