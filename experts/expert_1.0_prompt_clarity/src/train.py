@@ -1,8 +1,9 @@
+import glob
+import os
 from transformers import Trainer, TrainingArguments
 from model import create_model
 from data_preprocessing import preprocess_data
 import pandas as pd
-import os
 
 def merge_datasets(dataset_paths):
     """Function to merge multiple datasets into one."""
@@ -71,16 +72,15 @@ def train_model(dataset, model_name="bert-base-uncased"):
     model.save_pretrained('./models/prompt_clarity_model')
 
 if __name__ == "__main__":
-    # Paths to datasets
+    # Automatically collect all CSV files in the `data/` directory that match clarity datasets
+    data_dir = "data/"
     dataset_paths = [
-        "data/clarity_high_long.csv",
-        "data/clarity_high_medium.csv",
-        "data/clarity_high_short.csv",
-        "data/clarity_low_long.csv",
-        "data/clarity_low_medium.csv",
-        "data/clarity_low_short.csv",
+        path for path in glob.glob("data/**/clarity_*.csv", recursive=True)
+        if not path.endswith("clarity_merged.csv")
     ]
-    
+
+
+
     # Merge the datasets
     merged_dataset = merge_datasets(dataset_paths)
     
