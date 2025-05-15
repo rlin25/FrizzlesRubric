@@ -44,11 +44,16 @@ if __name__ == "__main__":
 
     # Example text(s) to test
     example_texts = [
-        "How do I improve the performance of my code?",
-        "Code me a website using HTML and CSS.",
-        "Write a Python function to calculate the factorial of a number.",
-        "Move the window 2 pixels to the right. Then, move it 3 pixels down. Finally, move it 1 pixel to the left."
+        "Fix this code.",
+        "Create a RESTful API in Flask that accepts user input and stores it in a PostgreSQL database.",
+        "Correct this stupid thing. I've been trying to fix it for hours. I don't know what to do.",
+        "Scrape the NBA website into a CSV file via BeautifulSoup.",
+        "Fix code this.",
+        "Create a API RESTful in Flask that user input accepts and itstores in a databasePostgreSQL.",
+        "Correct this stupid thing. trying trying I've been to for fix it hours. I whatdon't know  to do.",
+        "Scrape the website intoNBA  a  BeautifulSoupfile CSV via.",
     ]
+
 
     # Run the model on each example text
     for text in example_texts:
