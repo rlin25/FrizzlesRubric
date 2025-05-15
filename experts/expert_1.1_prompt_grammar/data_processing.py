@@ -21,9 +21,21 @@ class JFLEGProcessor:
         logger.info("Loading JFLEG dataset...")
         dataset = load_dataset("jfleg")
         
+        # Debug: Print dataset structure
+        logger.info("Dataset structure:")
+        logger.info(f"Keys: {dataset.keys()}")
+        logger.info(f"Validation set columns: {dataset['validation'].column_names}")
+        logger.info(f"Test set columns: {dataset['test'].column_names}")
+        
         # Convert to pandas DataFrame for easier processing
         train_data = pd.DataFrame(dataset['validation'])
         test_data = pd.DataFrame(dataset['test'])
+        
+        # Debug: Print DataFrame info
+        logger.info("\nTrain data info:")
+        logger.info(train_data.info())
+        logger.info("\nTest data info:")
+        logger.info(test_data.info())
         
         # Combine train and test data
         self.data = pd.concat([train_data, test_data], ignore_index=True)
@@ -42,7 +54,7 @@ class JFLEGProcessor:
         # Reference sentences are class 1 (correct)
         correct_samples = []
         for _, row in self.data.iterrows():
-            for ref in row['references']:
+            for ref in row['corrections']:
                 correct_samples.append({
                     'sentence': ref,
                     'label': 1
