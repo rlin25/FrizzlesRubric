@@ -1,0 +1,7 @@
+torch==2.2.2+cpu
+transformers==4.23.0
+datasets==2.8.0
+scikit-learn==1.4.2
+pandas==1.5.3
+numpy==1.26.4
+sentencepiece==0.1.96
