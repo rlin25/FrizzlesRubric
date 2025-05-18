@@ -1,7 +1,7 @@
 import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
-def test_model_on_live_example(model_path, example_text, tokenizer_name="bert-base-uncased", device='cuda'):
+def test_model_on_live_example(model_path, example_text, tokenizer_name="distilbert-base-uncased", device='cuda'):
     """Test a trained model on a live example and print the prediction."""
 
     # Load the trained model and tokenizer
@@ -39,7 +39,7 @@ def test_model_on_live_example(model_path, example_text, tokenizer_name="bert-ba
 if __name__ == "__main__":
     # Model and tokenizer settings
     model_path = './models/prompt_clarity_model'  # Path to the trained model
-    tokenizer_name = "bert-base-uncased"  # Or use a different tokenizer if applicable
+    tokenizer_name = "distilbert-base-uncased"  # Use DistilBERT
     device = 'cpu'  # Use 'cuda' if you have a GPU available
 
     # Example text(s) to test
