@@ -1,0 +1,149 @@
+prompt,label
+"Make the code better",0
+"Fix all the bugs",0
+"Add some error handling",0
+"Make it faster",0
+"Clean up the code",0
+"Add more features",0
+"Make it work",0
+"Fix the problems",0
+"Add some tests",0
+"Make it prettier",0
+"Improve the performance",0
+"Add some documentation",0
+"Make it more secure",0
+"Fix the errors",0
+"Add some validation",0
+"Make it more efficient",0
+"Add some logging",0
+"Make it more reliable",0
+"Fix the issues",0
+"Add some comments",0
+"Make it more maintainable",0
+"Add some error messages",0
+"Make it more scalable",0
+"Fix the bugs in the code",0
+"Add some security features",0
+"Make it more robust",0
+"Add some error handling somewhere",0
+"Make it more user-friendly",0
+"Fix the broken parts",0
+"Add some functionality",0
+"Make it more stable",0
+"Add some improvements",0
+"Make it more efficient somewhere",0
+"Fix the slow parts",0
+"Add some features to the code",0
+"Make it more organized",0
+"Add some error checking",0
+"Make it more modular",0
+"Fix the problematic code",0
+"Add some security measures",0
+"Make it more readable",0
+"Add some error recovery",0
+"Make it more maintainable somewhere",0
+"Fix the unreliable parts",0
+"Add some error prevention",0
+"Make it more efficient overall",0
+"Add some error detection",0
+"Make it more robust somewhere",0
+"Fix the unstable parts",0
+"Add some error management",0
+"Make the application better",0
+"Fix the broken functionality",0
+"Add some data validation",0
+"Make the system faster",0
+"Clean up the messy code",0
+"Add more capabilities",0
+"Make everything work",0
+"Fix the broken system",0
+"Add some unit tests",0
+"Make the interface better",0
+"Improve the system performance",0
+"Add some code documentation",0
+"Make the security better",0
+"Fix the system errors",0
+"Add some input validation",0
+"Make the code more efficient",0
+"Add some debug logging",0
+"Make the system more reliable",0
+"Fix the system issues",0
+"Add some code comments",0
+"Make the code more maintainable",0
+"Add some system messages",0
+"Make the system more scalable",0
+"Fix the system bugs",0
+"Add some security features",0
+"Make the system more robust",0
+"Add some error handling code",0
+"Make the system more user-friendly",0
+"Fix the broken functionality",0
+"Add some new features",0
+"Make the system more stable",0
+"Add some system improvements",0
+"Make the code more efficient",0
+"Fix the slow functionality",0
+"Add some system features",0
+"Make the code more organized",0
+"Add some system checking",0
+"Make the code more modular",0
+"Fix the problematic functionality",0
+"Add some system security",0
+"Make the code more readable",0
+"Add some system recovery",0
+"Make the code more maintainable",0
+"Fix the unreliable functionality",0
+"Add some system prevention",0
+"Make the code more efficient",0
+"Add some system detection",0
+"Make the code more robust",0
+"Fix the unstable functionality",0
+"Make the program better",0
+"Fix the broken features",0
+"Add some data checking",0
+"Make the software faster",0
+"Clean up the bad code",0
+"Add more functionality",0
+"Make it all work",0
+"Fix the broken program",0
+"Add some test cases",0
+"Make the UI better",0
+"Improve the software performance",0
+"Add some program documentation",0
+"Make the program more secure",0
+"Fix the program errors",0
+"Add some data validation",0
+"Make the program more efficient",0
+"Add some program logging",0
+"Make the program more reliable",0
+"Fix the program issues",0
+"Add some program comments",0
+"Make the program more maintainable",0
+"Add some program messages",0
+"Make the program more scalable",0
+"Fix the program bugs",0
+"Add some program security",0
+"Make the program more robust",0
+"Add some program error handling",0
+"Make the program more user-friendly",0
+"Fix the broken program features",0
+"Add some program features",0
+"Make the program more stable",0
+"Add some program improvements",0
+"Make the program more efficient",0
+"Fix the slow program features",0
+"Add some program capabilities",0
+"Make the program more organized",0
+"Add some program checking",0
+"Make the program more modular",0
+"Fix the problematic program features",0
+"Add some program protection",0
+"Make the program more readable",0
+"Add some program recovery",0
+"Make the program more maintainable",0
+"Fix the unreliable program features",0
+"Add some program prevention",0
+"Make the program more efficient",0
+"Add some program detection",0
+"Make the program more robust",0
+"Fix the unstable program features",0 
