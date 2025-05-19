@@ -1,14 +1,41 @@
-updated_md_cursor = """# Expert 2.0: Documentation Evaluation — Cursor AI-Oriented Instructions
+# Expert 2.0: Documentation Evaluation — Cursor AI-Oriented Instructions
 
 ## Objective  
 Train a binary classifier to determine if a natural language prompt for Cursor AI is **well-documented (1)** or **poorly documented (0)**, based on the inclusion of contextual background and explicit, broken-down instructions.
 
----
+## Current Implementation Status
+- Model: DistilBERT with classification head
+- Classification Threshold: 0.75
+- Framework: PyTorch
+- Focus: Clear step delineation and comprehensive context
+- Key Dependencies:
+  - torch >= 2.0.0
+  - transformers >= 4.30.0
+  - datasets >= 2.12.0
+  - scikit-learn >= 1.2.0
+  - pandas >= 2.0.0
+  - numpy >= 1.24.0
+  - spacy >= 3.5.0
+  - sentencepiece >= 0.1.99
+  - protobuf >= 3.20.0
+  - googletrans >= 3.1.0a0
+  - nltk >= 3.8.1
+  - tqdm >= 4.65.0
 
 ## Step 1: Define Binary Classification Task
 Transform the classification problem into a binary label prediction:
 - Output `1` if the input prompt includes background context and is broken down into subtasks.
 - Output `0` if context is missing and/or the prompt is vague, high-level, or improperly scoped.
+
+### Classification Criteria
+- Score > 0.75: Well-documented (1)
+  - Clear step-by-step instructions
+  - Comprehensive context
+  - Proper task breakdown
+- Score ≤ 0.75: Poorly documented (0)
+  - Missing steps
+  - Vague instructions
+  - Insufficient context
 
 ### Cursor AI Instruction:
 > Implement a classifier model that takes in a developer-written natural language instruction and outputs a binary value indicating whether the prompt is well-documented.
@@ -49,8 +76,8 @@ Use DistilBERT as a lightweight transformer model:
 - Append a classification head with a sigmoid output
 - Use binary cross-entropy loss
 - Apply label smoothing (e.g., 0.9 for positives)
-- Optionally integrate Focal Loss to reduce overconfidence
 - Early stop based on validation F1 score
+- Optimize for clear step detection
 
 ### Cursor AI Instruction:
 > Fine-tune a DistilBERT model on the binary labeled dataset using a classification head. Apply label smoothing during training. Validate using a reserved portion of the dataset and monitor accuracy and F1 score.
@@ -61,6 +88,7 @@ Use DistilBERT as a lightweight transformer model:
 This expert evaluates **documentation only**. Do not re-evaluate clarity or correctness:
 - Return a binary value that reflects documentation strength only
 - Feed this output into the MoE decision layer as one metric
+- Use 0.75 threshold for clear step detection
 
 ### Cursor AI Instruction:
 > Package the trained classifier into a callable service or module. When evaluating a prompt, return only a 0 or 1 that reflects documentation quality, without considering clarity or grammar. Forward this result into the MoE aggregator.
@@ -72,14 +100,7 @@ This expert evaluates **documentation only**. Do not re-evaluate clarity or corr
 - Do not use augmented prompts for evaluation
 - Metrics: Accuracy, Precision, Recall, F1
 - Manually review misclassified examples if possible
+- Validate step detection accuracy
 
 ### Cursor AI Instruction:
 > Split the dataset such that only prompts from `\\data\\original_gemini` are used for evaluation. Compute accuracy, precision, recall, and F1 on the test subset. Do not evaluate on any augmented prompts.
-
-"""
-
-updated_file_path = "/mnt/data/expert_2_documentation_cursor_ready_updated.md"
-with open(updated_file_path, "w") as f:
-    f.write(updated_md_cursor)
-
-updated_file_path
