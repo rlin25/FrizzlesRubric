@@ -2,6 +2,10 @@ import pandas as pd
 from datasets import Dataset, DatasetDict
 from sklearn.model_selection import train_test_split
 from transformers import AutoTokenizer
+import os
+
+# Get the absolute path to the project root directory
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Tokenize text column
 def tokenize_data(dataset, tokenizer):
@@ -33,7 +37,7 @@ def tokenize_data(dataset, tokenizer):
     return tokenized
 
 # Preprocess and split data
-def preprocess_data(data, tokenizer_name="bert-base-uncased"):
+def preprocess_data(data, tokenizer_name="distilbert-base-uncased"):
     tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
 
     # Handle file path or DataFrame input
@@ -59,9 +63,13 @@ def preprocess_data(data, tokenizer_name="bert-base-uncased"):
     overlap = set(train_df["text"]).intersection(set(test_df["text"]))
     assert len(overlap) == 0, f"Data leakage: {len(overlap)} overlapping prompts!"
 
+    # Create data directory if it doesn't exist
+    data_dir = os.path.join(PROJECT_ROOT, "data")
+    os.makedirs(data_dir, exist_ok=True)
+
     # ✅ Save test set to CSV for evaluation
-    train_df.to_csv("data/clarity_train_set.csv", index=False)
-    test_df.to_csv("data/clarity_test_set.csv", index=False)
+    train_df.to_csv(os.path.join(data_dir, "clarity_train_set.csv"), index=False)
+    test_df.to_csv(os.path.join(data_dir, "clarity_test_set.csv"), index=False)
 
     # Convert to Hugging Face Dataset
     train_dataset = Dataset.from_pandas(train_df.reset_index(drop=True))
@@ -82,5 +90,5 @@ def preprocess_data(data, tokenizer_name="bert-base-uncased"):
 
 # Standalone usage
 if __name__ == "__main__":
-    dataset = preprocess_data("data/clarity_merged.csv")
+    dataset = preprocess_data(os.path.join(PROJECT_ROOT, "data", "clarity_merged.csv"))
     print(dataset)
