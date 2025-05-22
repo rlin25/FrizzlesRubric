@@ -1,5 +1,5 @@
 import logging
-from .keywords import get_keywords
+from src.keywords import get_keywords
 
 def detect_ai_tooling(prompt: str, keywords=None) -> int:
     if keywords is None:

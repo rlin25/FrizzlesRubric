@@ -1,5 +1,5 @@
 import pytest
-from detector import detect_ai_tooling
+from src.detector import detect_ai_tooling
 
 def test_detects_ai_keywords():
     assert detect_ai_tooling("Use OpenAI's GPT-3 for this task.") == 0

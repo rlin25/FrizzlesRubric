@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Request, HTTPException
 from pydantic import BaseModel
-from .detector import detect_ai_tooling
+from src.detector import detect_ai_tooling
 
 app = FastAPI()
 
