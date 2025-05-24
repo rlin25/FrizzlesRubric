@@ -1,82 +1,82 @@
 import torch
 import torch.nn as nn
-from transformers import DistilBertModel, DistilBertTokenizer
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
 from typing import Dict, Tuple, Optional
 import logging
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-class PromptGrammarClassifier(nn.Module):
-    def __init__(self, model_name: str = "distilbert-base-uncased", dropout: float = 0.1):
+class GrammarClassifier(nn.Module):
+    def __init__(self, model_name="distilbert-base-uncased", num_labels=2):
         """
         Initialize the Prompt Grammar Classifier.
         
         Args:
             model_name (str): Name of the pre-trained DistilBERT model
-            dropout (float): Dropout rate for the classification head
+            num_labels (int): Number of labels for the classification task
         """
         super().__init__()
         logger.info(f"Initializing model with {model_name}")
-        
-        self.bert = DistilBertModel.from_pretrained(model_name)
-        self.tokenizer = DistilBertTokenizer.from_pretrained(model_name)
-        
-        # Classification head
-        self.classifier = nn.Sequential(
-            nn.Dropout(dropout),
-            nn.Linear(self.bert.config.hidden_size, 256),
-            nn.ReLU(),
-            nn.Dropout(dropout),
-            nn.Linear(256, 1),
-            nn.Sigmoid()
+        self.num_labels = num_labels
+        self.model = AutoModelForSequenceClassification.from_pretrained(
+            model_name,
+            num_labels=num_labels
         )
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
         
         logger.info("Model initialized successfully")
         
-    def forward(self, input_ids: torch.Tensor, attention_mask: torch.Tensor) -> torch.Tensor:
+    def forward(self, input_ids: torch.Tensor, attention_mask: torch.Tensor, labels=None):
         """
         Forward pass of the model.
         
         Args:
             input_ids (torch.Tensor): Input token IDs
             attention_mask (torch.Tensor): Attention mask
+            labels (torch.Tensor, optional): Ground truth labels
             
         Returns:
-            torch.Tensor: Binary classification scores
+            dict: Classification outputs or loss
         """
-        outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask)
-        pooled_output = outputs.last_hidden_state[:, 0, :]  # Use [CLS] token
-        return self.classifier(pooled_output)
+        outputs = self.model(
+            input_ids=input_ids,
+            attention_mask=attention_mask
+        )
+        logits = outputs.logits
+        if labels is not None:
+            loss_fct = torch.nn.CrossEntropyLoss()
+            loss = loss_fct(logits.view(-1, self.num_labels), labels.view(-1))
+            return {"loss": loss, "logits": logits}
+        return {"logits": logits}
     
-    def predict(self, text: str, device: str = "cuda" if torch.cuda.is_available() else "cpu") -> Tuple[float, float]:
+    def predict(self, text: str) -> Tuple[int, float]:
         """
         Make a prediction for a single text input.
         
         Args:
             text (str): Input text to classify
-            device (str): Device to run inference on
             
         Returns:
-            Tuple[float, float]: (prediction, confidence)
+            Tuple[int, float]: (prediction, confidence)
         """
         self.eval()
         with torch.no_grad():
             # Tokenize input
             inputs = self.tokenizer(
                 text,
-                padding=True,
+                return_tensors="pt",
                 truncation=True,
-                max_length=512,
-                return_tensors="pt"
-            ).to(device)
+                padding=True,
+                max_length=512
+            )
             
             # Get prediction
-            outputs = self(inputs["input_ids"], inputs["attention_mask"])
-            prediction = outputs.item()
-            
-            # Calculate confidence (distance from decision boundary)
-            confidence = abs(prediction - 0.5) * 2
+            outputs = self(**inputs)
+            logits = outputs.logits
+            probs = torch.softmax(logits, dim=1)
+            confidence = torch.max(probs, dim=1)[0].item()
+            prediction = torch.argmax(probs, dim=1).item()
             
             return prediction, confidence
     
@@ -93,6 +93,10 @@ class PromptGrammarClassifier(nn.Module):
         logger.info(f"Loading model from {path}")
         model = cls()
         model.load_state_dict(torch.load(f"{path}/model.pt", map_location=device))
-        model.tokenizer = DistilBertTokenizer.from_pretrained(path)
+        model.tokenizer = AutoTokenizer.from_pretrained(path)
         logger.info("Model loaded successfully")
         return model 
+
+def create_model(model_name="distilbert-base-uncased"):
+    """Create and return a new model instance."""
+    return GrammarClassifier(model_name=model_name) 

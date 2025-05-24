@@ -1,0 +1,95 @@
+INFO:     Started server process [133801]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+[API LOG] Input: 1
+[API LOG] Logits: tensor([[ 2.2406, -2.6882]])
+[API LOG] Predicted Class: 0
+INFO:     127.0.0.1:34132 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: Write a Python script to print 4 lines of whatever
+[API LOG] Logits: tensor([[-2.5057,  2.4743]])
+[API LOG] Predicted Class: 1
+INFO:     127.0.0.1:47050 - "POST /predict HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [133801]
+INFO:     Started server process [135760]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+[API LOG] Input: 1
+[API LOG] Logits: tensor([[ 2.2406, -2.6882]])
+[API LOG] Predicted Class: 0
+[API LOG] Confidence: 0.9928169250488281
+INFO:     127.0.0.1:52208 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: da;lfjlsdfj;ldskf
+[API LOG] Logits: tensor([[-1.8980,  1.9287]])
+[API LOG] Predicted Class: 1
+[API LOG] Confidence: 0.9786810278892517
+INFO:     127.0.0.1:39350 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: adfadsfadsf adsfs
+[API LOG] Logits: tensor([[-0.4639,  0.2709]])
+[API LOG] Predicted Class: 1
+[API LOG] Confidence: 0.6758677363395691
+INFO:     127.0.0.1:39358 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: adsfadsfasdf adsfdsa fadsfdas 
+[API LOG] Logits: tensor([[-1.6494,  1.5087]])
+[API LOG] Predicted Class: 1
+[API LOG] Confidence: 0.9592287540435791
+INFO:     127.0.0.1:49314 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: dfsa
+[API LOG] Logits: tensor([[ 1.9761, -2.3342]])
+[API LOG] Predicted Class: 0
+[API LOG] Confidence: 0.9867486953735352
+INFO:     127.0.0.1:49316 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: adfdasf
+[API LOG] Logits: tensor([[ 1.8104, -2.1476]])
+[API LOG] Predicted Class: 0
+[API LOG] Confidence: 0.9812557101249695
+INFO:     127.0.0.1:49332 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: adsfasdf
+[API LOG] Logits: tensor([[ 1.6857, -2.0307]])
+[API LOG] Predicted Class: 0
+[API LOG] Confidence: 0.9762560725212097
+INFO:     127.0.0.1:49336 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: adsfadsf
+[API LOG] Logits: tensor([[ 1.7610, -2.1536]])
+[API LOG] Predicted Class: 0
+[API LOG] Confidence: 0.9804425835609436
+INFO:     127.0.0.1:49350 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: adsfasd
+[API LOG] Logits: tensor([[ 2.0326, -2.4061]])
+[API LOG] Predicted Class: 0
+[API LOG] Confidence: 0.9883264899253845
+INFO:     127.0.0.1:49366 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: fasdf
+[API LOG] Logits: tensor([[ 1.8524, -2.2272]])
+[API LOG] Predicted Class: 0
+[API LOG] Confidence: 0.9833667278289795
+INFO:     127.0.0.1:49374 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: asdfdasfdsaf
+[API LOG] Logits: tensor([[ 0.7519, -0.9712]])
+[API LOG] Predicted Class: 0
+[API LOG] Confidence: 0.848524808883667
+INFO:     127.0.0.1:49388 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: adsfadsfasdfafdsa
+[API LOG] Logits: tensor([[-0.2580, -0.0408]])
+[API LOG] Predicted Class: 1
+[API LOG] Confidence: 0.5541021823883057
+INFO:     127.0.0.1:49392 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: fdfasdfadsfasdfdasfdsaf
+[API LOG] Logits: tensor([[-0.0237, -0.2920]])
+[API LOG] Predicted Class: 0
+[API LOG] Confidence: 0.5666780471801758
+INFO:     127.0.0.1:49358 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: afdaldsjflda;sjfasdf dfasjldsf da
+[API LOG] Logits: tensor([[-1.4592,  1.3431]])
+[API LOG] Predicted Class: 1
+[API LOG] Confidence: 0.9428002834320068
+INFO:     127.0.0.1:49368 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: adsfl ajslf jdlfjas fds ajfljdsf sdf
+[API LOG] Logits: tensor([[-1.3530,  1.1023]])
+[API LOG] Predicted Class: 1
+[API LOG] Confidence: 0.9209538698196411
+INFO:     127.0.0.1:49374 - "POST /predict HTTP/1.1" 200 OK

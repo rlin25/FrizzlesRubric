@@ -13,6 +13,9 @@ from sklearn.model_selection import KFold
 import os
 from datetime import datetime
 
+# Get the base directory (parent of scripts directory)
+BASE_DIR = Path(__file__).parent.parent.absolute()
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -245,16 +248,16 @@ def cross_validate(train_df, n_splits=5):
         val_fold = train_df.iloc[val_idx]
         
         # Save fold data
-        fold_dir = Path("processed_data") / f"fold_{fold}"
+        fold_dir = BASE_DIR / "processed_data" / f"fold_{fold}"
         fold_dir.mkdir(exist_ok=True)
         train_fold.to_csv(fold_dir / "train.csv", index=False)
         val_fold.to_csv(fold_dir / "val.csv", index=False)
         
         # Train model
-        trainer = GrammarTrainer(output_dir=f"models/fold_{fold}")
+        trainer = GrammarTrainer(output_dir=str(BASE_DIR / f"models/fold_{fold}"))
         train_loader, val_loader = trainer.prepare_data(
-            fold_dir / "train.csv",
-            fold_dir / "val.csv"
+            str(fold_dir / "train.csv"),
+            str(fold_dir / "val.csv")
         )
         trainer.train(train_loader, val_loader)
         
@@ -275,16 +278,16 @@ def cross_validate(train_df, n_splits=5):
 
 if __name__ == "__main__":
     # Load full training data
-    train_df = pd.read_csv("processed_data/train.csv")
+    train_df = pd.read_csv(BASE_DIR / "processed_data/train.csv")
     
     # Perform cross-validation
     fold_metrics, avg_metrics = cross_validate(train_df)
     
     # Train final model on full dataset
     logger.info("Training final model on full dataset")
-    trainer = GrammarTrainer(output_dir="models/final")
+    trainer = GrammarTrainer(output_dir=str(BASE_DIR / "models/final"))
     train_loader, val_loader = trainer.prepare_data(
-        "processed_data/train.csv",
-        "processed_data/val.csv"
+        str(BASE_DIR / "processed_data/train.csv"),
+        str(BASE_DIR / "processed_data/val.csv")
     )
     trainer.train(train_loader, val_loader) 

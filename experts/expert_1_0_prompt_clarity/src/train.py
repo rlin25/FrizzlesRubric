@@ -85,7 +85,7 @@ def train_model(dataset, model_name="distilbert-base-uncased"):
     os.makedirs('./cache', exist_ok=True)
 
     print("Starting fresh training with clean initialization...")
-    trainer.train()
+        trainer.train()
 
     # Save the final model
     trainer.save_model('./models/prompt_clarity_model')

@@ -1,0 +1,23 @@
+{
+  "train": {
+    "total": 2092,
+    "correct": 1046,
+    "incorrect": 1046,
+    "correct_ratio": 0.5,
+    "incorrect_ratio": 0.5
+  },
+  "val": {
+    "total": 464,
+    "correct": 232,
+    "incorrect": 232,
+    "correct_ratio": 0.5,
+    "incorrect_ratio": 0.5
+  },
+  "test": {
+    "total": 450,
+    "correct": 225,
+    "incorrect": 225,
+    "correct_ratio": 0.5,
+    "incorrect_ratio": 0.5
+  }
+}

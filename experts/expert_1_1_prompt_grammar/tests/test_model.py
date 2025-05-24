@@ -70,11 +70,11 @@ def get_test_cases() -> List[Dict[str, str]]:
 
 def test_model():
     # Initialize model and tokenizer
-    model_dir = Path("models")
+    model_dir = Path("/home/ubuntu/FrizzlesRubric/experts/expert_1_1_prompt_grammar/models/grammar_model")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
     logger.info("Loading model and tokenizer...")
-    tokenizer = DistilBertTokenizer.from_pretrained(model_dir)
+    tokenizer = DistilBertTokenizer.from_pretrained("distilbert-base-uncased")
     model = DistilBertForSequenceClassification.from_pretrained(model_dir)
     model.to(device)
     model.eval()

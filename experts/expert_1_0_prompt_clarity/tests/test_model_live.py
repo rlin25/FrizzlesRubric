@@ -38,7 +38,7 @@ def test_model_on_live_example(model_path, example_text, tokenizer_name="distilb
 
 if __name__ == "__main__":
     # Model and tokenizer settings
-    model_path = './models/prompt_clarity_model'  # Path to the trained model
+    model_path = '/home/ubuntu/FrizzlesRubric/experts/expert_1_0_prompt_clarity/models/prompt_clarity_model'  # Absolute path to the trained model
     tokenizer_name = "distilbert-base-uncased"  # Use DistilBERT
     device = 'cpu'  # Use 'cuda' if you have a GPU available
 
