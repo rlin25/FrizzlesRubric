@@ -1,2 +1,3 @@
-# Expert 3 Data
-experts/expert_3_0_prompt_structure/data/
+**/venv/
+**/models/
+**/data/ 
