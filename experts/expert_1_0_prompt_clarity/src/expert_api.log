@@ -93,3 +93,19 @@ INFO:     127.0.0.1:49368 - "POST /predict HTTP/1.1" 200 OK
 [API LOG] Predicted Class: 1
 [API LOG] Confidence: 0.9209538698196411
 INFO:     127.0.0.1:49374 - "POST /predict HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [135760]
+INFO:     Started server process [582]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [582]
+INFO:     Started server process [580]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)

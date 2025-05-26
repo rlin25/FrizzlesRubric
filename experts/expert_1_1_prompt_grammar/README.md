@@ -1,94 +1,31 @@
-# Grammar Checker Expert 1.1
+# Expert 1.1 Prompt Grammar
 
-A FastAPI-based service for checking grammatical correctness of prompts.
+This expert system classifies English prompts as having proper or improper grammar and spelling using a fine-tuned DistilBERT model.
 
-## Features
+## Usage
 
-- Binary classification of grammatical correctness
-- Confidence score for predictions
-- Rate limiting (10 requests per minute)
-- Request timeout handling (5 seconds)
-- Input validation
-- Health check endpoint for orchestrator monitoring
+### 1. Data Preparation
+- Place the JFLEG dataset as `data/jfleg.csv` (columns: `prompt`, `label`).
+- Run `python src/data.py` to balance and split the data into train/val/test sets.
 
-## API Endpoints
+### 2. Model Training
+- Run `python src/model.py` to fine-tune DistilBERT. The best checkpoint is saved in `model_checkpoint/`.
 
-### POST /check
-Check the grammatical correctness of a prompt.
+### 3. API
+- Start the API with:
+  ```
+  uvicorn src.api:app --host 127.0.0.1 --port 8000
+  ```
+- Send POST requests to `/predict` with `{ "prompt": <string> }`.
 
-Request:
-```json
-{
-    "prompt": "This is a grammatically correct sentence."
-}
-```
+### 4. Evaluation
+- Run `python src/evaluate.py` to evaluate the model on the test set.
+- Run `python src/test_api.py` to test the API with example prompts.
 
-Response:
-```json
-{
-    "is_correct": 1,
-    "confidence": 0.95,
-    "processing_time": 0.123
-}
-```
+### 5. Deployment
+- Use the provided `systemd_service_example.txt` to deploy as a systemd service.
+- Restrict API access to the bastion host only.
 
-### GET /health
-Health check endpoint for orchestrator monitoring.
-
-Response:
-```json
-{
-    "status": "healthy"
-}
-```
-
-## Deployment
-
-1. Create and activate virtual environment:
-```bash
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-.\venv\Scripts\activate   # Windows
-```
-
-2. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-3. Start the server:
-```bash
-python inference_api.py
-```
-
-The server will start on `http://localhost:8000`.
-
-## API Documentation
-
-Once the server is running, you can access:
-- Swagger UI: `http://localhost:8000/docs`
-- ReDoc: `http://localhost:8000/redoc`
-
-## Error Handling
-
-The API handles various error cases:
-- Empty or whitespace-only prompts
-- Prompts exceeding maximum length (1000 characters)
-- Rate limit exceeded (10 requests per minute)
-- Request timeout (5 seconds)
-- Server errors
-
-## Monitoring
-
-The service includes:
-- Detailed logging with timestamps
-- Processing time tracking
-- Request/response logging
-- Error tracking
-
-## Requirements
-
-- Python 3.8+
-- CUDA-capable GPU (optional, for faster inference)
-- 2GB+ RAM
-- 500MB+ disk space for model files 
+## Notes
+- No authentication or rate limiting (internal use only).
+- For retraining, repeat steps 1-2 with new data. 

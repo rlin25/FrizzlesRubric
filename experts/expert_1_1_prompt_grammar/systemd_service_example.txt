@@ -1,0 +1,12 @@
+[Unit]
+Description=Prompt Grammar API Service
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/FrizzlesRubric/experts/expert_1_1_prompt_grammar/src
+ExecStart=/home/ubuntu/FrizzlesRubric/experts/expert_1_1_prompt_grammar/venv/bin/uvicorn api:app --host 127.0.0.1 --port 8000
+Restart=always
+
+[Install]
+WantedBy=multi-user.target 
