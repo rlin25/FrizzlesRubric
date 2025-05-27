@@ -109,3 +109,81 @@ INFO:     Started server process [580]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [580]
+INFO:     Started server process [581]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+[API LOG] Input: Print 5 lines of binary numbers
+[API LOG] Logits: tensor([[ 2.1448, -2.5671]])
+[API LOG] Predicted Class: 0
+[API LOG] Confidence: 0.9910923838615417
+INFO:     127.0.0.1:34622 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: Print 5 lines of "test" 
+[API LOG] Logits: tensor([[ 1.9198, -2.2812]])
+[API LOG] Predicted Class: 0
+[API LOG] Confidence: 0.9852391481399536
+INFO:     127.0.0.1:60686 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: Create a comprehensive and accessible tree view component, utilized for displaying hierarchical data structures such as organizational charts or file system navigators, allowing users to expand and collapse nodes to reveal nested content, visually indicating the current level of nesting, and ensuring that the component is navigable via keyboard and properly announces its structure and state to screen readers using appropriate ARIA roles and attributes.
+[API LOG] Logits: tensor([[-2.7727,  2.8010]])
+[API LOG] Predicted Class: 1
+[API LOG] Confidence: 0.9962181448936462
+INFO:     127.0.0.1:52768 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: Reduce modal: 400px width, 500px height, show user profile.
+[API LOG] Logits: tensor([[-2.6480,  2.6106]])
+[API LOG] Predicted Class: 1
+[API LOG] Confidence: 0.9948244094848633
+INFO:     127.0.0.1:50530 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: Shrink this window by 20px 
+[API LOG] Logits: tensor([[ 1.7022, -2.0772]])
+[API LOG] Predicted Class: 0
+[API LOG] Confidence: 0.9776727557182312
+INFO:     127.0.0.1:43612 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: Shrink this window to 20px wide and 50px high
+[API LOG] Logits: tensor([[-1.0172,  0.8188]])
+[API LOG] Predicted Class: 1
+[API LOG] Confidence: 0.8624741435050964
+INFO:     127.0.0.1:36510 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: test.
+[API LOG] Logits: tensor([[ 2.4302, -2.8347]])
+[API LOG] Predicted Class: 0
+[API LOG] Confidence: 0.9948570728302002
+INFO:     127.0.0.1:49958 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: This is a sentence with good grammar but poor clarity.
+[API LOG] Logits: tensor([[ 1.3599, -1.4724]])
+[API LOG] Predicted Class: 0
+[API LOG] Confidence: 0.9443988800048828
+INFO:     127.0.0.1:44554 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: Modify the spatial arrangement.
+[API LOG] Logits: tensor([[ 2.6302, -3.0812]])
+[API LOG] Predicted Class: 0
+[API LOG] Confidence: 0.9967027306556702
+INFO:     127.0.0.1:52604 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: test.
+[API LOG] Logits: tensor([[ 2.4302, -2.8347]])
+[API LOG] Predicted Class: 0
+[API LOG] Confidence: 0.9948570728302002
+INFO:     127.0.0.1:40182 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: test.
+[API LOG] Logits: tensor([[ 2.4302, -2.8347]])
+[API LOG] Predicted Class: 0
+[API LOG] Confidence: 0.9948570728302002
+INFO:     127.0.0.1:40188 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: test.
+[API LOG] Logits: tensor([[ 2.4302, -2.8347]])
+[API LOG] Predicted Class: 0
+[API LOG] Confidence: 0.9948570728302002
+INFO:     127.0.0.1:47116 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: Design a custom authorization system with role-based access control and permission inheritance
+[API LOG] Logits: tensor([[-2.8076,  2.7486]])
+[API LOG] Predicted Class: 1
+[API LOG] Confidence: 0.9961512684822083
+INFO:     127.0.0.1:54834 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: Design a custom authorization system with role-based access control and permission inheritance
+[API LOG] Logits: tensor([[-2.8076,  2.7486]])
+[API LOG] Predicted Class: 1
+[API LOG] Confidence: 0.9961512684822083
+INFO:     127.0.0.1:44100 - "POST /predict HTTP/1.1" 200 OK
