@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { Box, Grid, AppBar, Toolbar, Typography, Container, Paper, TextField, Button, CircularProgress, Alert, Avatar } from '@mui/material';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import LightbulbIcon from '@mui/icons-material/Lightbulb';
+import DescriptionIcon from '@mui/icons-material/Description';
+import ViewModuleIcon from '@mui/icons-material/ViewModule';
+import GrainIcon from '@mui/icons-material/Grain';
+import BuildIcon from '@mui/icons-material/Build';
+import RepeatIcon from '@mui/icons-material/Repeat';
 
 const EXPERTS = [
   { key: 'expert_1_clarity', label: 'Clarity' },
@@ -70,7 +76,7 @@ function App() {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Prompt Orchestrator Demo
+            Cursor AI Prompt Evaluator
           </Typography>
         </Toolbar>
       </AppBar>
@@ -81,7 +87,7 @@ function App() {
           <Grid container spacing={4}>
             {/* Left Column: Prompt input and lights */}
             <Grid item xs={12} md={6}>
-              <Paper sx={{ p: 3, mb: 2 }}>
+              <Paper sx={{ p: 3, mb: 2, display: 'inline-block', minWidth: 0, maxWidth: '100%' }}>
                 <Typography variant="h6" gutterBottom>Prompt Input</Typography>
                 <Droppable droppableId="promptInput" direction="vertical">
                   {(provided, snapshot) => (
@@ -90,7 +96,18 @@ function App() {
                       onSubmit={handleSubmit}
                       ref={provided.innerRef}
                       {...provided.droppableProps}
-                      sx={{ mb: 2, display: 'flex', gap: 2, alignItems: 'center', background: snapshot.isDraggingOver ? '#e3f2fd' : 'inherit', borderRadius: 1 }}
+                      sx={{
+                        mb: 2,
+                        display: 'flex',
+                        flexDirection: 'row',
+                        gap: 2,
+                        alignItems: 'center',
+                        background: snapshot.isDraggingOver ? '#e3f2fd' : 'inherit',
+                        borderRadius: 1,
+                        transition: 'all 0.2s',
+                        minHeight: snapshot.isDraggingOver ? 80 : 0,
+                        p: snapshot.isDraggingOver ? 1 : 0
+                      }}
                     >
                       <TextField
                         label="Enter your prompt"
@@ -99,8 +116,14 @@ function App() {
                         value={prompt}
                         onChange={e => setPrompt(e.target.value)}
                         disabled={loading}
+                        multiline
+                        minRows={snapshot.isDraggingOver ? 3 : 2}
+                        sx={{
+                          transition: 'all 0.2s',
+                          background: snapshot.isDraggingOver ? '#e3f2fd' : 'inherit',
+                        }}
                       />
-                      <Button type="submit" variant="contained" disabled={loading || !prompt.trim()}>
+                      <Button type="submit" variant="contained" disabled={loading || !prompt.trim()} sx={{ height: 56, alignSelf: 'center' }}>
                         {loading ? <CircularProgress size={24} /> : 'Submit'}
                       </Button>
                       {provided.placeholder}
@@ -108,9 +131,9 @@ function App() {
                   )}
                 </Droppable>
                 {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
-                <Typography variant="h6" gutterBottom>Expert Results</Typography>
+                <Typography variant="h6" gutterBottom sx={{ mt: 2, textAlign: 'left' }}>Expert Results</Typography>
                 {/* Visual feedback (lights) */}
-                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 3, mb: 1 }}>
+                <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', gap: 3, mb: 1 }}>
                   {EXPERTS.map(expert => (
                     <Box key={expert.key} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                       <Avatar
@@ -122,22 +145,24 @@ function App() {
                           border: '2px solid #888',
                           mb: 0.5
                         }}
-                      />
+                      >
+                        {expert.key === 'expert_1_clarity' && <LightbulbIcon />}
+                        {expert.key === 'expert_2_documentation' && <DescriptionIcon />}
+                        {expert.key === 'expert_3_structure' && <ViewModuleIcon />}
+                        {expert.key === 'expert_4_granulation' && <GrainIcon />}
+                        {expert.key === 'expert_5_tooling' && <BuildIcon />}
+                        {expert.key === 'expert_6_repetition' && <RepeatIcon />}
+                      </Avatar>
                       <Typography variant="caption" sx={{ textAlign: 'center' }}>{expert.label}</Typography>
                     </Box>
                   ))}
                 </Box>
-                {results && (
-                  <Box sx={{ mt: 2 }}>
-                    <Typography variant="body2">Raw Results: {JSON.stringify(results)}</Typography>
-                  </Box>
-                )}
               </Paper>
             </Grid>
 
             {/* Right Column: Example prompts table with drag-and-drop */}
             <Grid item xs={12} md={6}>
-              <Paper sx={{ p: 3 }}>
+              <Paper sx={{ p: 3, display: 'inline-block', minWidth: 0, maxWidth: '100%' }}>
                 <Typography variant="h6" gutterBottom>Example Prompts</Typography>
                 <Droppable droppableId="examplePrompts">
                   {(provided, snapshot) => (
@@ -172,7 +197,7 @@ function App() {
 
       {/* Footer */}
       <Box component="footer" sx={{ py: 2, textAlign: 'center', background: '#eee' }}>
-        <Typography variant="body2">&copy; 2025 Prompt Orchestrator Demo</Typography>
+        <Typography variant="body2">&copy; 2025 Richard Lin</Typography>
       </Box>
     </Box>
   );

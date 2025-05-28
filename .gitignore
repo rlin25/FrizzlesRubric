@@ -1,0 +1,5 @@
+**/venv/
+**/models/
+**/data/
+awscliv2.zip
+webapp/node_modules/.cache/default-development/3.pack
