@@ -1,0 +1,61 @@
+INFO:__main__:Epoch 1/5
+Training:   0%|          | 0/50 [00:00<?, ?it/s]Training:   0%|          | 0/50 [00:03<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/ubuntu/FrizzlesRubric/experts/expert_4_0_prompt_granularity/./src/train.py", line 261, in <module>
+    main() 
+    ^^^^^^
+  File "/home/ubuntu/FrizzlesRubric/experts/expert_4_0_prompt_granularity/./src/train.py", line 252, in main
+    history = trainer.train()
+              ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FrizzlesRubric/experts/expert_4_0_prompt_granularity/./src/train.py", line 161, in train
+    train_loss = self.train_epoch()
+                 ^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FrizzlesRubric/experts/expert_4_0_prompt_granularity/./src/train.py", line 98, in train_epoch
+    outputs = self.model(input_ids, attention_mask)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FrizzlesRubric/experts/expert_4_0_prompt_granularity/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FrizzlesRubric/experts/expert_4_0_prompt_granularity/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FrizzlesRubric/experts/expert_4_0_prompt_granularity/src/model.py", line 50, in forward
+    outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FrizzlesRubric/experts/expert_4_0_prompt_granularity/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FrizzlesRubric/experts/expert_4_0_prompt_granularity/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FrizzlesRubric/experts/expert_4_0_prompt_granularity/venv/lib/python3.12/site-packages/transformers/models/distilbert/modeling_distilbert.py", line 739, in forward
+    return self.transformer(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FrizzlesRubric/experts/expert_4_0_prompt_granularity/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FrizzlesRubric/experts/expert_4_0_prompt_granularity/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FrizzlesRubric/experts/expert_4_0_prompt_granularity/venv/lib/python3.12/site-packages/transformers/models/distilbert/modeling_distilbert.py", line 544, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/ubuntu/FrizzlesRubric/experts/expert_4_0_prompt_granularity/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FrizzlesRubric/experts/expert_4_0_prompt_granularity/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FrizzlesRubric/experts/expert_4_0_prompt_granularity/venv/lib/python3.12/site-packages/transformers/models/distilbert/modeling_distilbert.py", line 470, in forward
+    sa_output = self.attention(
+                ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FrizzlesRubric/experts/expert_4_0_prompt_granularity/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FrizzlesRubric/experts/expert_4_0_prompt_granularity/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/FrizzlesRubric/experts/expert_4_0_prompt_granularity/venv/lib/python3.12/site-packages/transformers/models/distilbert/modeling_distilbert.py", line 396, in forward
+    attn_output = torch.nn.functional.scaled_dot_product_attention(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
