@@ -46,7 +46,7 @@ function App() {
     setLoading(true);
     setResults(null);
     try {
-      const response = await fetch('http://localhost:8010/orchestrate', {
+      const response = await fetch('/orchestrate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt })
