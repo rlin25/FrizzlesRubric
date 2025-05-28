@@ -1,0 +1,4 @@
+sentence-transformers
+boto3
+nltk
+numpy 

@@ -1,0 +1,14 @@
+[Unit]
+Description=Expert 6.0 Prompt Repetition API Server
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/FrizzlesRubric/experts/expert_6_0_prompt_repetition
+Environment=NLTK_DATA=/home/ubuntu/nltk_data
+ExecStart=/bin/bash -c 'source /home/ubuntu/FrizzlesRubric/experts/expert_6_0_prompt_repetition/venv/bin/activate && python3 -m src.api_server'
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target 
