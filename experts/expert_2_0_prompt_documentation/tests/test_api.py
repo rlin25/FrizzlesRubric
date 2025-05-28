@@ -1,6 +1,6 @@
 import requests
 
-url = "http://localhost:8000/check"
+url = "http://localhost:8003/check"
 data = {"prompt": "This is a test sentence."}
 
 try:
