@@ -19,14 +19,10 @@ model, device = load_model()
 class PredictRequest(BaseModel):
     prompt: str
 
-class PredictResponse(BaseModel):
-    prediction: int
-    probability: float
-
-@app.post('/predict', response_model=PredictResponse)
+@app.post('/predict')
 def predict(req: PredictRequest):
-    label, prob = model.predict(req.prompt, device=device)
-    return PredictResponse(prediction=label, probability=prob)
+    label, _ = model.predict(req.prompt, device=device)
+    return {"result": label}
 
 if __name__ == '__main__':
     uvicorn.run('api_8004:app', host='0.0.0.0', port=8004, reload=False) 
