@@ -1,0 +1,18 @@
+# 3. Detection Logic Subplan (Detailed)
+- Implement a function (e.g., detect_ai_tooling) that accepts a prompt string and a keyword list.
+- Normalize the prompt:
+  - Convert to lowercase.
+  - Strip leading/trailing whitespace.
+  - Optionally, collapse multiple spaces to a single space.
+- Matching strategy:
+  - Use case-insensitive substring matching for each keyword.
+  - Optionally, support regex patterns for advanced matching.
+- Return 0 if any keyword is found in the prompt, otherwise return 1.
+- Add logging for detection events:
+  - Log detected keywords and prompt for traceability.
+  - Log when no keywords are detected.
+- Write unit tests for this function:
+  - Positive cases (AI keywords present).
+  - Negative cases (no AI keywords).
+  - Edge cases (empty prompt, whitespace, very long prompt, etc.).
+- Design the function for easy extension (e.g., swapping in regex or NLP-based detection in the future). 

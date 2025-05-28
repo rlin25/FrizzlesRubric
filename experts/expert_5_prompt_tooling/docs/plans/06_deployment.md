@@ -1,0 +1,16 @@
+# 6. Deployment Subplan (Detailed)
+- Write instructions for running the API locally:
+  - Install dependencies: pip install -r requirements.txt
+  - Start server: uvicorn src.main:app --reload
+- Provide a Dockerfile for containerized deployment:
+  - Use python:3.9-slim as base image.
+  - Copy source code and requirements.txt.
+  - Install dependencies and expose port 8000.
+  - Set CMD to run uvicorn.
+- Document environment variables or config options:
+  - (Optional) Path to external keyword list.
+  - (Optional) Log level.
+- Include instructions for running tests and health checks:
+  - pytest src/
+  - curl http://localhost:8000/health
+- Provide troubleshooting tips for common deployment issues. 

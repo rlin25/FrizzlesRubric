@@ -1,0 +1,12 @@
+# 5. Testing Subplan (Detailed)
+- Use pytest for all tests.
+- Write unit tests for detection logic:
+  - Test detection of all keywords.
+  - Test negative and edge cases (empty, whitespace, long prompts).
+- Write integration tests for FastAPI endpoints using TestClient:
+  - /label endpoint: valid requests, invalid requests (missing/invalid fields), edge cases.
+  - /health endpoint: always returns { "status": "ok" }.
+- Ensure tests cover error responses and status codes.
+- Automate tests to run with a single command (pytest src/).
+- Provide sample test cases for easy extension.
+- Document how to add new tests when updating keywords or logic. 
