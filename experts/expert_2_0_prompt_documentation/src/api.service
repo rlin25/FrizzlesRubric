@@ -1,0 +1,13 @@
+[Unit]
+Description=FastAPI Documentation Classifier API
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/FrizzlesRubric/experts/expert_2_0_prompt_documentation/src
+ExecStart=/home/ubuntu/FrizzlesRubric/experts/expert_2_0_prompt_documentation/venv/bin/python api.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target 
