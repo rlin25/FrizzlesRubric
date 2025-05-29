@@ -1,0 +1,13 @@
+# Data
+- **Source:** JFLEG dataset
+    - Download from official repository or use preprocessed local copy.
+    - Data is in English and consists of sentences with grammar/spelling annotations.
+- **Negative examples:** Use all 1511 original negatively labeled (improper grammar/spelling) examples.
+    - No synthetic or augmented negatives are included.
+    - Each example is a prompt with at least one grammar or spelling error.
+- **Positive examples:** Use only 1511 original positively labeled (proper grammar/spelling) examples, randomly selected to match the negatives in number and diversity.
+    - Random selection is seeded for reproducibility.
+    - No overlap with negative examples.
+- **No data augmentation** will be performed; only original data will be used.
+    - No backtranslation, paraphrasing, or synthetic data generation.
+    - All data is used as-is from the JFLEG dataset. 

@@ -1,0 +1,13 @@
+[Unit]
+Description=Run FastAPI Granularity API on port 8005
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/FrizzlesRubric
+ExecStart=/home/ubuntu/FrizzlesRubric/experts/expert_4_0_prompt_granularity/src/run_api.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target 

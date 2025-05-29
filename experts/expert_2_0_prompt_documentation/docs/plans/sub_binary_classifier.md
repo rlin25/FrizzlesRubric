@@ -1,13 +1,28 @@
 # Expert 2.0: Documentation Evaluation — Binary Classification Implementation
 
 ## Objective
-Implement a binary classifier that evaluates documentation quality in Cursor AI prompts.
+Implement a binary classifier that evaluates documentation quality in Cursor AI prompts, with a focus on clear step delineation and comprehensive context.
 
 ## Technical Requirements
 1. Input: Natural language prompt string
 2. Output: Binary value (0 or 1)
 3. Model: DistilBERT with classification head
-4. Framework: PyTorch or TensorFlow
+4. Framework: PyTorch
+5. Classification Threshold: 0.75 (optimized for clear step detection)
+
+## Dependencies
+- torch >= 2.0.0
+- transformers >= 4.30.0
+- datasets >= 2.12.0
+- scikit-learn >= 1.2.0
+- pandas >= 2.0.0
+- numpy >= 1.24.0
+- spacy >= 3.5.0
+- sentencepiece >= 0.1.99
+- protobuf >= 3.20.0
+- googletrans >= 3.1.0a0
+- nltk >= 3.8.1
+- tqdm >= 4.65.0
 
 ## Implementation Steps
 
@@ -49,13 +64,15 @@ TRAINING_CONFIG = {
 }
 ```
 
-### 4. Loss Function
-```python
-def custom_loss(predictions, targets):
-    bce = nn.BCELoss()
-    focal = FocalLoss(alpha=0.25, gamma=2)
-    return 0.7 * bce(predictions, targets) + 0.3 * focal(predictions, targets)
-```
+### 4. Classification Criteria
+- Score > 0.75: Well-documented (1)
+  - Clear step-by-step instructions
+  - Comprehensive context
+  - Proper task breakdown
+- Score ≤ 0.75: Poorly documented (0)
+  - Missing steps
+  - Vague instructions
+  - Insufficient context
 
 ### 5. Evaluation Metrics
 ```python
@@ -105,6 +122,7 @@ def validate_input(prompt: str):
 3. Integration tests with sample prompts
 4. Performance benchmarks
 5. Error handling tests
+6. Step detection validation
 
 ## Deployment Checklist
 1. Model serialization
@@ -112,4 +130,5 @@ def validate_input(prompt: str):
 3. Error handling
 4. Logging setup
 5. Performance monitoring
-6. Model versioning 
+6. Model versioning
+7. Threshold configuration

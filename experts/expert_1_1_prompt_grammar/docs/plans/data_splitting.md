@@ -1,0 +1,13 @@
+# Data Splitting
+- Stratified split to ensure balanced classes in each set.
+    - Use sklearn.model_selection.train_test_split with stratify parameter.
+    - Maintain equal proportion of positive and negative examples in train, validation, and test sets.
+- **Training:** ~80% of data
+    - Used for model fitting and learning parameters.
+    - Data is shuffled before each epoch.
+- **Validation:** ~10% of data
+    - Used for hyperparameter tuning and early stopping.
+    - Not used in training or test evaluation.
+- **Test:** ~10% of data
+    - Held out until final evaluation.
+    - Used to report final metrics and ensure no data leakage. 
