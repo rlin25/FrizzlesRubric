@@ -1,0 +1,20 @@
+// Pseudocode for App.js
+
+1. Import necessary React and Material-UI components, icons, and drag-and-drop utilities.
+2. Define constants for expert categories, example prompts, and tooltip descriptions.
+3. Define a function to get the color for each expert result.
+4. Define the main App component:
+    a. Initialize state for prompt, loading, error, results, and example prompts.
+    b. Define handleSubmit to POST the prompt to the orchestrator API and update results or error.
+    c. Define onDragEnd to set the prompt if an example is dragged to the input area.
+    d. Render the UI:
+        i. AppBar (banner) with title.
+        ii. Main container with DragDropContext:
+            - Prompt input section (Paper):
+                * Form for prompt input and submit button (fades on drag-over)
+                * Error alert if needed
+                * Expert results (icons with tooltips, responsive grid)
+            - Example prompts section (Paper):
+                * List of draggable example prompts
+        iii. Footer with copyright.
+5. Export the App component as default. 
