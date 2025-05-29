@@ -1,0 +1,8 @@
+**/venv/
+**/venv_py311
+**/models/
+**/model_checkpoint/
+**/data/
+awscliv2.zip
+webapp/node_modules/.cache/default-development/3.pack
+*.pyc
