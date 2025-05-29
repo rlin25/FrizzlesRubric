@@ -6,3 +6,5 @@
 awscliv2.zip
 webapp/node_modules/.cache/default-development/3.pack
 *.pyc
+experts/orchestrator_1_0_prompt_evaluation/venv/
+experts/orchestrator_1_0_prompt_evaluation/__pycache__/
