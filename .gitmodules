@@ -1,0 +1,3 @@
+[submodule "Expert-2-Documentation"]
+	path = experts/Expert-2-Documentation
+	url = https://github.com/rlin25/FrizzlesRubric-Expert-2-Documentation.git
