@@ -638,3 +638,59 @@ INFO:     127.0.0.1:39084 - "POST /predict HTTP/1.1" 200 OK
 [API LOG] Predicted Class: 1
 [API LOG] Confidence: 0.9932312965393066
 INFO:     127.0.0.1:42656 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: Design an algorithm to efficiently merge overlapping time intervals from multiple calendars
+[API LOG] Logits: tensor([[-2.5349,  2.4538]])
+[API LOG] Predicted Class: 1
+[API LOG] Confidence: 0.9932312965393066
+INFO:     127.0.0.1:51656 - "POST /predict HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [581]
+INFO:     Started server process [34397]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+[API LOG] Input: Design an algorithm to efficiently merge overlapping time intervals from multiple calendars
+[API LOG] Logits: tensor([[-2.5349,  2.4538]])
+[API LOG] Predicted Class: 1
+[API LOG] Confidence: 0.9932312965393066
+INFO:     127.0.0.1:36654 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: 1. Select this Python module. 2. Add type hints to all functions. 3. Use the 'typing' module.
+[API LOG] Logits: tensor([[-2.2658,  2.2809]])
+[API LOG] Predicted Class: 1
+[API LOG] Confidence: 0.9895099401473999
+INFO:     127.0.0.1:36670 - "POST /predict HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [34397]
+INFO:     Started server process [35851]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+[API LOG] Input: Design an algorithm to efficiently merge overlapping time intervals from multiple calendars
+[API LOG] Logits: tensor([[-2.5349,  2.4538]])
+[API LOG] Predicted Class: 1
+[API LOG] Confidence: 0.9932312965393066
+INFO:     127.0.0.1:54952 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: Enter this prompt twice.
+[API LOG] Logits: tensor([[ 2.5026, -2.9147]])
+[API LOG] Predicted Class: 0
+[API LOG] Confidence: 0.9955803751945496
+INFO:     127.0.0.1:35750 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: 1. Select this Python module. 2. Add type hints to all functions. 3. Use the 'typing' module.
+[API LOG] Logits: tensor([[-2.2658,  2.2809]])
+[API LOG] Predicted Class: 1
+[API LOG] Confidence: 0.9895099401473999
+INFO:     127.0.0.1:35752 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: Design an algorithm to efficiently merge overlapping time intervals from multiple calendars
+[API LOG] Logits: tensor([[-2.5349,  2.4538]])
+[API LOG] Predicted Class: 1
+[API LOG] Confidence: 0.9932312965393066
+INFO:     127.0.0.1:35440 - "POST /predict HTTP/1.1" 200 OK
+[API LOG] Input: Design an algorithm to efficiently merge overlapping time intervals from multiple calendars
+[API LOG] Logits: tensor([[-2.5349,  2.4538]])
+[API LOG] Predicted Class: 1
+[API LOG] Confidence: 0.9932312965393066
+INFO:     127.0.0.1:43150 - "POST /predict HTTP/1.1" 200 OK
