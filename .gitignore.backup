@@ -1,9 +1,7 @@
 **/venv/
+**/venv_py311
 **/models/
-<<<<<<< HEAD
-**/data/ 
-=======
+**/model_checkpoint/
 **/data/
 awscliv2.zip
 webapp/node_modules/.cache/default-development/3.pack
->>>>>>> 7d23555baa6067134f9d371b7bc3b24d968b1c69

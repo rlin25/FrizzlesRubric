@@ -1,98 +1,96 @@
+import os
 import torch
-import torch.nn as nn
-from transformers import DistilBertModel, DistilBertTokenizer
-from typing import Dict, Tuple, Optional
-import logging
+from transformers import DistilBertTokenizerFast, DistilBertForSequenceClassification, Trainer, TrainingArguments
+from datasets import Dataset
+import pandas as pd
+from sklearn.model_selection import train_test_split
 
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+MODEL_NAME = 'distilbert-base-uncased'
+DATA_DIR = os.path.join(os.path.dirname(__file__), '../data')
+CHECKPOINT_DIR = os.path.join(os.path.dirname(__file__), '../model_checkpoint')
+SEED = 42
 
-class PromptGrammarClassifier(nn.Module):
-    def __init__(self, model_name: str = "distilbert-base-uncased", dropout: float = 0.1):
-        """
-        Initialize the Prompt Grammar Classifier.
-        
-        Args:
-            model_name (str): Name of the pre-trained DistilBERT model
-            dropout (float): Dropout rate for the classification head
-        """
-        super().__init__()
-        logger.info(f"Initializing model with {model_name}")
-        
-        self.bert = DistilBertModel.from_pretrained(model_name)
-        self.tokenizer = DistilBertTokenizer.from_pretrained(model_name)
-        
-        # Classification head
-        self.classifier = nn.Sequential(
-            nn.Dropout(dropout),
-            nn.Linear(self.bert.config.hidden_size, 256),
-            nn.ReLU(),
-            nn.Dropout(dropout),
-            nn.Linear(256, 1),
-            nn.Sigmoid()
-        )
-        
-        logger.info("Model initialized successfully")
-        
-    def forward(self, input_ids: torch.Tensor, attention_mask: torch.Tensor) -> torch.Tensor:
-        """
-        Forward pass of the model.
-        
-        Args:
-            input_ids (torch.Tensor): Input token IDs
-            attention_mask (torch.Tensor): Attention mask
-            
-        Returns:
-            torch.Tensor: Binary classification scores
-        """
-        outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask)
-        pooled_output = outputs.last_hidden_state[:, 0, :]  # Use [CLS] token
-        return self.classifier(pooled_output)
-    
-    def predict(self, text: str, device: str = "cuda" if torch.cuda.is_available() else "cpu") -> Tuple[float, float]:
-        """
-        Make a prediction for a single text input.
-        
-        Args:
-            text (str): Input text to classify
-            device (str): Device to run inference on
-            
-        Returns:
-            Tuple[float, float]: (prediction, confidence)
-        """
-        self.eval()
-        with torch.no_grad():
-            # Tokenize input
-            inputs = self.tokenizer(
-                text,
-                padding=True,
-                truncation=True,
-                max_length=512,
-                return_tensors="pt"
-            ).to(device)
-            
-            # Get prediction
-            outputs = self(inputs["input_ids"], inputs["attention_mask"])
-            prediction = outputs.item()
-            
-            # Calculate confidence (distance from decision boundary)
-            confidence = abs(prediction - 0.5) * 2
-            
-            return prediction, confidence
-    
-    def save(self, path: str):
-        """Save the model and tokenizer."""
-        logger.info(f"Saving model to {path}")
-        torch.save(self.state_dict(), f"{path}/model.pt")
-        self.tokenizer.save_pretrained(path)
-        logger.info("Model saved successfully")
-    
-    @classmethod
-    def load(cls, path: str, device: str = "cuda" if torch.cuda.is_available() else "cpu"):
-        """Load a saved model."""
-        logger.info(f"Loading model from {path}")
-        model = cls()
-        model.load_state_dict(torch.load(f"{path}/model.pt", map_location=device))
-        model.tokenizer = DistilBertTokenizer.from_pretrained(path)
-        logger.info("Model loaded successfully")
-        return model 
+# Load positive and negative examples
+pos_df = pd.read_csv(os.path.join(DATA_DIR, 'jfleg_first_positive_training.csv'))
+neg_df = pd.read_csv(os.path.join(DATA_DIR, 'jfleg_incorrect.csv'))
+
+# Combine and shuffle
+all_df = pd.concat([pos_df, neg_df], ignore_index=True).sample(frac=1, random_state=SEED).reset_index(drop=True)
+
+# Stratified split: 80% train, 10% val, 10% test
+train_df, temp_df = train_test_split(all_df, test_size=0.2, stratify=all_df['label'], random_state=SEED)
+val_df, test_df = train_test_split(temp_df, test_size=0.5, stratify=temp_df['label'], random_state=SEED)
+
+def df_to_hf_dataset(df):
+    return Dataset.from_pandas(df[['prompt', 'label']])
+
+train_dataset = df_to_hf_dataset(train_df)
+val_dataset = df_to_hf_dataset(val_df)
+test_dataset = df_to_hf_dataset(test_df)
+
+tokenizer = DistilBertTokenizerFast.from_pretrained(MODEL_NAME)
+
+def tokenize(batch):
+    prompts = batch['prompt']
+    if isinstance(prompts, str):
+        prompts = [prompts]
+    # Filter out or replace non-string values
+    clean_prompts = [p if isinstance(p, str) and p.strip() != '' else '' for p in prompts]
+    for i, p in enumerate(clean_prompts):
+        if not isinstance(p, str) or p == '':
+            print(f'REMOVED/EMPTY at index {i}: {repr(p)} (type: {type(p)})')
+    print('DEBUG: prompts type:', type(clean_prompts), 'first 5:', clean_prompts[:5])
+    return tokenizer(clean_prompts, padding='max_length', truncation=True, max_length=64)
+
+train_dataset = train_dataset.map(tokenize, batched=True)
+val_dataset = val_dataset.map(tokenize, batched=True)
+test_dataset = test_dataset.map(tokenize, batched=True)
+
+model = DistilBertForSequenceClassification.from_pretrained(MODEL_NAME, num_labels=2)
+
+training_args = TrainingArguments(
+    output_dir=CHECKPOINT_DIR,
+    num_train_epochs=3,
+    per_device_train_batch_size=16,
+    per_device_eval_batch_size=32,
+    evaluation_strategy='epoch',
+    save_strategy='epoch',
+    logging_dir='./logs',
+    load_best_model_at_end=True,
+    metric_for_best_model='f1',
+    greater_is_better=True,
+    seed=SEED,
+)
+
+def compute_metrics(eval_pred):
+    from sklearn.metrics import accuracy_score, precision_recall_fscore_support, confusion_matrix
+    logits, labels = eval_pred
+    preds = logits.argmax(axis=-1)
+    acc = accuracy_score(labels, preds)
+    precision, recall, f1, _ = precision_recall_fscore_support(labels, preds, average='binary')
+    cm = confusion_matrix(labels, preds)
+    return {
+        'accuracy': acc,
+        'precision': precision,
+        'recall': recall,
+        'f1': f1,
+        'confusion_matrix': cm.tolist()
+    }
+
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=train_dataset,
+    eval_dataset=val_dataset,
+    compute_metrics=compute_metrics,
+)
+
+print(f"Train dataset size: {len(train_dataset)}")
+print(f"Validation dataset size: {len(val_dataset)}")
+
+if __name__ == '__main__':
+    print('Starting training...')
+    trainer.train()
+    print('Training complete. Saving model...')
+    trainer.save_model(CHECKPOINT_DIR)
+    print('Model saved to', CHECKPOINT_DIR) 
