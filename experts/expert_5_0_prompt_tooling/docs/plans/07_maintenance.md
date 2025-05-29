@@ -1,0 +1,14 @@
+# 7. Maintenance Subplan (Detailed)
+- Document the process for updating the keyword list:
+  - Edit keywords.py or external file.
+  - Add/remove keywords as needed.
+  - Run tests to ensure coverage.
+  - Redeploy service after updates.
+- Provide guidelines for extending detection logic:
+  - Add support for regex or NLP-based detection if needed.
+  - Update tests to cover new logic.
+- Add notes on monitoring and logging:
+  - Monitor API health via /health endpoint.
+  - Log detection events and errors for auditing.
+  - Set up alerting for repeated failures or downtime.
+- Document how to update dependencies and rebuild Docker image. 

@@ -1,0 +1,17 @@
+# 1. API Contract Subplan (Detailed)
+- Specify HTTP method: POST for /label endpoint, GET for /health endpoint.
+- Define /label request body schema:
+  - JSON object with required field: 'prompt' (type: string, non-empty).
+  - Example: { "prompt": "Write a Python function using OpenAI's GPT-3." }
+- Define /label response schema:
+  - JSON object with required field: 'label' (type: integer, 0 or 1).
+  - Example: { "label": 0 }
+- Define error response schema:
+  - For missing/invalid 'prompt': 400 Bad Request, { "detail": "Missing or invalid 'prompt' field." }
+  - For invalid JSON: 422 Unprocessable Entity, { "detail": "Invalid JSON." }
+- Document OpenAPI/Swagger schema using FastAPI's automatic docs.
+- /health endpoint:
+  - Method: GET
+  - Response: { "status": "ok" }
+- Ensure all endpoints return application/json content type.
+- Add CORS support if required for cross-origin requests. 

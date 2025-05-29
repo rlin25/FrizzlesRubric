@@ -1,0 +1,15 @@
+# 4. API Integration Subplan (Detailed)
+- Set up a FastAPI application in main.py.
+- Implement /label POST endpoint:
+  - Parse and validate incoming JSON using Pydantic model.
+  - Ensure 'prompt' is present, is a string, and is not empty/whitespace.
+  - Call detection logic and return result in response schema.
+  - Handle missing/invalid input with HTTP 400 and error message.
+  - Handle invalid JSON with HTTP 422 and error message.
+- Implement /health GET endpoint:
+  - Return { "status": "ok" } for health checks.
+- Add logging for API requests and responses:
+  - Log incoming requests, detection results, and errors.
+- Ensure all endpoints return application/json content type.
+- Add CORS middleware if cross-origin requests are expected.
+- Document endpoints using FastAPI's automatic OpenAPI docs. 
