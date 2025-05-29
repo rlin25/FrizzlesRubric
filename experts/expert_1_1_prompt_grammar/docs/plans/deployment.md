@@ -1,0 +1,13 @@
+# Deployment
+- Deploy as a **systemd service** for reliability and automatic restarts.
+    - Provide a systemd unit file with ExecStart pointing to the API server script.
+    - Enable Restart=always and configure logging to journal or file.
+    - Service starts on boot and restarts on failure automatically.
+- API will be accessible only to the bastion host (not public).
+    - Bind the API server to localhost or a private network interface.
+    - Use firewall rules or security groups to restrict access to the bastion host IP.
+    - No public DNS or external exposure is configured.
+- Monitor logs using `journalctl` or log files.
+    - All API requests, errors, and system events are logged.
+    - Logs are accessible via `journalctl -u <service-name>` or by reading log files directly.
+    - No external log aggregation or alerting is configured by default. 

@@ -1,0 +1,12 @@
+# API
+- **Input:** JSON with a prompt string.
+    - Endpoint: POST /predict
+    - Request body: { "prompt": <string> }
+    - Content-Type: application/json
+    - No authentication headers required.
+- **Output:** JSON with:
+    - `predicted_class`: 0 (improper) or 1 (proper)
+        - Indicates whether the prompt is classified as improper or proper grammar/spelling.
+    - `confidence`: model's confidence in the prediction
+        - Float value between 0 and 1 representing the model's certainty.
+    - Example response: { "predicted_class": 1, "confidence": 0.97 } 
