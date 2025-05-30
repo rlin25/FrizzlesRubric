@@ -16,6 +16,7 @@ Frizzle's Rubric is a modular, extensible system for automated evaluation of AI 
 - [API Reference](#api-reference)
 - [Development & Contributing](#development--contributing)
 - [License](#license)
+- [AWS Architecture](#aws-architecture)
 
 ---
 
@@ -174,6 +175,64 @@ See each expert's and orchestrator's source for full details.
 - Add new experts by following the existing template (FastAPI, Dockerfile, requirements.txt).
 - The orchestrator can be extended to call new experts or aggregate results differently.
 - The webapp is fully decoupled and can be extended with new UI features or metrics.
+
+---
+
+## AWS Architecture
+
+Frizzle's Rubric is deployed on AWS using a secure, production-grade VPC architecture:
+
+```
+                          +---------------------+
+                          |     Internet        |
+                          +----------+----------+
+                                     |
+                            Internet Gateway (IGW)
+                                     |
+                           +--------------------+
+                           |    Public Subnet    |
+                           |  CIDR: 172.31.49.0/24|
+                           +---------+----------+
+                                     |
+          +--------------------------+-------------------------+
+          |                          |                         |
++---------v---------+      +---------v----------+    +---------v----------+
+|  Bastion Host     |      |  NAT Gateway       |    |  Elastic IP (EIP)  |
+| (Public Subnet)   |      |  (in Public Subnet)|    |  assigned to NAT   |
+| Public IPv4 IP    |      | Public IP via EIP  |    | Gateway            |
++-------------------+      +--------------------+    +--------------------+
+         |                                   |
+         |                                   |
+         |                                   |
+         |          Route Table (Public)     |
+         |          0.0.0.0/0 → IGW          |
+         +-----------------------------------+
+
+                           +--------------------+
+                           |   Private Subnet    |
+                           |  CIDR: 172.31.20.0/24|
+                           +---------+----------+
+                                     |
+                             Private Instances
+                        (No Public IP, no IGW route)
+                                     |
+                Route Table (Private) 0.0.0.0/0 → NAT Gateway
+```
+
+**Key Points:**
+
+- **Public subnet** hosts:
+  - Bastion Host (with public IP for SSH access)
+  - NAT Gateway (with Elastic IP for outbound internet)
+- **Private subnet** hosts:
+  - Private EC2 instances (no public IPs, not directly accessible from the internet)
+- **NAT Gateway** allows private instances to access the internet securely, without exposing them publicly.
+- **Bastion Host** enables secure SSH access to private instances using a jump server pattern.
+- **Security:**
+  - Only the bastion host is exposed to the public internet.
+  - All other services (experts, orchestrators) run in private subnets, accessible only via the bastion or internal VPC networking.
+
+For more details, see [`docs/aws_vpc_architecture.md`](docs/aws_vpc_architecture.md).
 
 ---
 
