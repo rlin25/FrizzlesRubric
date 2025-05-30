@@ -149,7 +149,7 @@ npm install
 npm start
 ```
 
-The webapp will be available at http://localhost:3000 (or see the [live site](www.frizzlesrubric.net)).
+The webapp will be available at http://localhost:3000 (or see the live site).
 
 ---
 
