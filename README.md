@@ -15,8 +15,8 @@ Frizzle's Rubric is a modular, extensible system for automated evaluation of AI 
 - [Setup & Installation](#setup--installation)
 - [API Reference](#api-reference)
 - [Development & Contributing](#development--contributing)
-- [License](#license)
 - [AWS Architecture](#aws-architecture)
+- [License](#license)
 
 ---
 
