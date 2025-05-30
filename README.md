@@ -44,7 +44,7 @@ Frizzle's Rubric provides automated, multi-dimensional evaluation of natural lan
 
 ## Expert Modules
 
-Each expert is a self-contained service (FastAPI, Python) with its own model, API, and deployment scripts. Most experts use a fine-tuned DistilBERT or similar transformer for binary classification.
+Each expert is a self-contained service (FastAPI, Python) with its own model, API, and deployment scripts. Most experts use a fine-tuned DistilBERT transformer for binary classification.
 
 - **expert_1_0_prompt_clarity**: Classifies prompt clarity (clear/unclear).
 - **expert_1_1_prompt_grammar**: Detects proper/improper grammar and spelling.
@@ -54,7 +54,7 @@ Each expert is a self-contained service (FastAPI, Python) with its own model, AP
 - **expert_5_0_prompt_tooling**: Detects references to AI tools or automation.
 - **expert_6_0_prompt_repetition**: Flags repeated or duplicate prompts.
 
-Each expert exposes a simple HTTP API (usually `/predict` or `/check`) and can be run standalone (see each expert's README and Dockerfile for details).
+Each expert exposes a simple HTTP API and can be run standalone (see each expert's README for details).
 
 ---
 
@@ -149,7 +149,7 @@ npm install
 npm start
 ```
 
-The webapp will be available at http://localhost:3000 (or see the live site).
+The webapp will be available at http://localhost:3000 (or see the [live site](www.frizzlesrubric.net)).
 
 ---
 
@@ -157,9 +157,9 @@ The webapp will be available at http://localhost:3000 (or see the live site).
 
 Each expert exposes a simple HTTP API, typically:
 
-- **POST /predict** or **/check**
+- **POST /predict**
   - Request: `{ "prompt": "your prompt here" }`
-  - Response: `{ "predicted_class": 0|1, "confidence": 0.97 }` (fields may vary)
+  - Response: `{ "predicted_class": 0|1}`
 
 The orchestrator exposes:
 
@@ -201,10 +201,9 @@ For more details, see [`docs/aws_vpc_architecture.md`](docs/aws_vpc_architecture
 
 ---
 
+**For questions, bug reports, or contributions, please open an issue or pull request.** 
+---
+
 ## License
 
 MIT License. See [LICENSE.md](/c:/Code/Python/Compete/HackAI/FrizzlesRubric/LICENSE.md) for details.
-
----
-
-**For questions, bug reports, or contributions, please open an issue or pull request.** 
